@@ -68,6 +68,7 @@ nav {
 }
 
 .navigation .link {
+  position: relative;
   color: var(--primary-text-color);
   font-style: normal;
   font-weight: 500;
@@ -78,6 +79,7 @@ nav {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation .nav-items:not(:last-child) {
@@ -86,12 +88,18 @@ nav {
 
 .link.active {
   color: var(--accent-text-color);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  text-decoration: none;
+}
+
+.link.active::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-text-color);
+  border-radius: 2px;
+  bottom: 0;
+  left: 0;
 }
 
 .navigation .link:hover {
@@ -112,6 +120,7 @@ nav {
   text-decoration: none;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts .link:hover {
@@ -153,6 +162,7 @@ nav {
 .header-icon-phone {
   fill: currentColor;
   margin-right: 10px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-icon-mail:hover {
@@ -319,6 +329,28 @@ nav {
   width: calc((100% - 90px) / 3);
 }
 
+.work-items-thumb {
+  position: relative;
+}
+
+.work-items-desc {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-text-color);
+  min-height: 70px;
+  width: 100%;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
 /* ========= End Чем мы занимаемся ========= */
 
 /* Наша команда */
@@ -382,6 +414,7 @@ nav {
   background-color: transparent;
   justify-content: center;
   align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-links-items:not(:last-child) {
@@ -392,6 +425,7 @@ nav {
   width: 20px;
   height: 20px;
   fill: #afb1b8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-links-item-link:hover {
@@ -431,12 +465,14 @@ nav {
   background-color: transparent;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .our-clients-icon {
   fill: #afb1b8;
   width: 106px;
   height: 60px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .our-clients-links:hover {
@@ -489,6 +525,7 @@ footer .footer-contacts {
   line-height: 1.71;
   letter-spacing: 0.03em;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-address-list li:first-child {
@@ -534,10 +571,7 @@ footer .footer-contacts:focus {
   background-color: rgba(255, 255, 255, 0.1);
   justify-content: center;
   align-items: center;
-}
-
-.social-links-item-link-footer:hover .social-links-icon-footer {
-  fill: var(--white-text-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-links-item-link-footer:hover {
@@ -584,6 +618,8 @@ footer .footer-contacts:focus {
   letter-spacing: 0.03em;
   border-radius: 4px;
   background: #f5f4fa;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-portfolio-btn:hover {
@@ -591,7 +627,6 @@ footer .footer-contacts:focus {
   color: var(--white-text-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -651,9 +686,37 @@ footer .footer-contacts:focus {
   letter-spacing: 0.03em;
 }
 
+.projects-list-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--white-text-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+  overflow: auto;
+
+  transform: translateY(101%);
+  transition: transform 250ms linear;
+}
+
+.projects-link-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-link:hover .projects-list-overlay {
+  transform: translateY(0%);
+  transition: transform 250ms linear;
+}
+
 .projects-link {
   display: block;
   text-decoration: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects-link:hover {
@@ -664,4 +727,61 @@ footer .footer-contacts:focus {
 .projects-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+/* ========= MODAL WINDOW =========*/
+
+.backdrop {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0%);
+  transition: opacity 250ms linear, visibility 500ms linear, transform 500ms linear;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition: opacity 250ms linear, visibility 500ms linear, transform 500ms linear;
+}
+
+.modal-window {
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  background-color: var(--white-text-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.closed-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.closed-btn-icon {
+  width: 11px;
+  height: 11px;
 }

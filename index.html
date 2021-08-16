@@ -53,7 +53,7 @@
     <section class="hero">
       <div class="container">
       <h1 class="title">Эффективные решения для вашего бизнеса</h1>
-      <button class="modal-btn" type="button"><span class="button-name">Заказать услугу</span></button>
+      <button class="modal-btn" data-modal-open type="button"><span class="button-name">Заказать услугу</span></button>
       </div>
     </section>
     
@@ -111,9 +111,24 @@
       <div class="container">
       <h2 class="sections-title">Чем мы занимаемся</h2>
       <ul class="work-list">
-        <li class="work-list-item"><img src="./img/box1.jpg" width="370" height="294" alt="Чем мы занимаемся 1"></li>
-        <li class="work-list-item"><img src="./img/box2.jpg" width="370" height="294" alt="Чем мы занимаемся 2"></li>
-        <li class="work-list-item"><img src="./img/box3.jpg" width="370" height="294" alt="Чем мы занимаемся 3"></li>
+        <li class="work-list-item">
+          <div class="work-items-thumb">
+            <img src="./img/box1.jpg" width="370" height="294" alt="Чем мы занимаемся 1">
+            <p class="work-items-desc">Десктопные приложения</p></div>
+          
+        </li>
+        <li class="work-list-item">
+          <div class="work-items-thumb">
+            <img src="./img/box2.jpg" width="370" height="294" alt="Чем мы занимаемся 2">
+            <p class="work-items-desc">Мобильные приложения</p></div>
+          
+        </li>
+        <li class="work-list-item">
+          <div class="work-items-thumb">
+            <img src="./img/box3.jpg" width="370" height="294" alt="Чем мы занимаемся 3"> 
+            <p class="work-items-desc">Дизайнерские решения</p></div>
+          
+        </li>
     
       </ul>
       </div>
@@ -335,8 +350,16 @@
 
   </footer>
 
-
-
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal-window">
+    <button class="closed-button" data-modal-close type="button">
+      <svg class="closed-btn-icon">
+        <use href="./img/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+  </div>
+</div>
+<script src="./js/modal.js"></script>
 </body>
 
 </html>
