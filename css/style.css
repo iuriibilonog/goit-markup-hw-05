@@ -732,9 +732,9 @@ footer .footer-contacts:focus {
 /* ========= MODAL WINDOW =========*/
 
 .backdrop {
+  position: fixed;
   top: 0;
   left: 0;
-  position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
